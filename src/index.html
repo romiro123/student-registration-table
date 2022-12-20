@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="js/modal.js"></script>
+  <script defer src="js/main.js"></script>
+  <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header__row row">
+        <div class="col-lg-9 col-md-8 col-sm-12 ">
+          <h1 class="title">Таблица учета студентов</h1>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12 ">
+          <button class="header__btn btn btn--add">Добавить студента</button>
+        </div>
+      </div>
+      <h3 class="filter__title title title--small"> Фильтр</h3>
+
+      <form class="filter__form row">
+
+        <div class="col-lg-3 col-md-6 col-sm-6 filter__item">
+          <input id="filter-fio" class="filter__input" placeholder="ФИО">
+          <button id="btn-filter-fio" class="btn btn__filter btn__filter--ok">ok</button>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 filter__item">
+          <input id="filter-faculty" class="filter__input" placeholder="Факультет">
+          <button id="btn-filter-faculty" class="btn btn__filter btn__filter--ok">ok</button>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 filter__item">
+          <input id="filter-start-teaching" class="filter__input" placeholder="Год начала обучения" type="number">
+          <button id="btn-filter-start-teaching" class="btn btn__filter btn__filter--ok">ok</button>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 filter__item">
+          <input id="filter-end-teaching" class="filter__input" placeholder="Год окончания обучения" type="number">
+          <button id="btn-filter-end-teaching" class="btn btn__filter btn__filter--ok">ok</button>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 ">
+          <button id="btn-filter-del" class="btn btn__filter btn__filter--del">del</button>
+        </div>
+      </form>
+
+
+
+    </div>
+
+  </header>
+
+  <main>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <button id="th--fio" class="btn btn--th">ФИО</button>
+            </th>
+            <th>
+              <button id="th--faculty" class="btn btn--th">Факультет</button>
+            </th>
+            <th>
+              <button id="th--bday" class="btn btn--th">Дата рождения</button>
+            </th>
+            <th>
+              <button id="th--year" class="btn btn--th">Год обучения</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="students-list">
+
+        </tbody>
+      </table>
+    </div>
+    <div class="add-student-wrap">
+      <div class="add-student">
+        <h3 class="add-student__title title title--small">Анкета нового студента</h3>
+
+        <form class="form__item" name="formAdStudent" id="formAddStudent" action="">
+          <div class="form__item">
+            <label class="form__label" for="nameForm">Фамилия</label>
+            <input class="form__input" name="nameForm" type="text" id="nameForm" placeholder="Иванов"
+              required="required">
+          </div>
+
+          <div class="form__item">
+            <label class="form__label" for="firstnameForm">Имя</label>
+            <input class="form__input" name="firstnameForm" type="text" id="firstnameForm" placeholder="Иван"
+              required="required">
+          </div>
+
+          <div class="form__item">
+            <label class="form__label" for="middlenameForm">Отчество</label>
+            <input class="form__input" name="middlenameForm" type="text" id="middlenameForm" placeholder="Иванович"
+              required="required">
+          </div>
+
+          <div class="form__item">
+            <label class="form__label" for="bday">Дата рождения</label>
+            <input class="form__input" name="bday" type="date" id="bday" min="1990-01-01" max="2030-12-31"
+              required="required">
+          </div>
+
+          <div class="form__item">
+            <label class="form__label" for="yearEducation">Год начала обучения</label>
+            <input class="form__input" name="yearEducation" type="number" id="yearEducation" min="2000"
+              placeholder="2000" required="required">
+          </div>
+
+          <div class="form__item">
+            <label class="form__label" for="facultyForm">Факультет</label>
+            <input class="form__input" name="facultyForm" type="text" id="facultyForm" placeholder="Математический"
+              required="required">
+          </div>
+
+          <!--<button class="btn btn--form" type="submit">Добавить</button>-->
+          <!--
+          <input type="submit" value="Отправить" onclick="alert('clickkkk')">-->
+
+          <!--
+          <label class="form__label" for="surname">Фамилия</label>
+          <input class="form__input" name="surname" type="text" id="surname" placeholder="Иванов" required="required">
+          <label class="form__label" for="firstName">Имя</label>
+          <input class="form__input" name="firstName" type="text" id="firstName" placeholder="Иван" required="required">
+          <label class="form__label" for="middleName">Отчество</label>
+          <input class="form__input" name="middleName" type="text" id="middleName" placeholder="Иванович"
+            required="required">
+          <label class="form__label" for="bday">Дата рождения</label>
+          <input class="form__input" name="bday" type="date" id="bday" min="1990-01-01" max="2030-12-31"
+            required="required">
+          <label class="form__label" for="yearEducation">Год начала обучения</label>
+          <input class="form__input" name="yearEducation" type="number" id="yearEducation" min="2000" placeholder="2000"
+            required="required">
+          <label class="form__label" for="faculty">Факультет</label>
+          <input class="form__input" name="faculty" type="text" id="faculty" placeholder="Математический"
+            required="required">-->
+
+          <!--<input type="submit" value="Отправить">-->
+          <button class="btn btn--form" type="submit" id="submit">Добавить</button>
+        </form>
+        <button class="btn btn--form-close"></button>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+
+</html>
